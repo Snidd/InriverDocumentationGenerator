@@ -1,4 +1,5 @@
-  import { ExampleXml } from '../../classes/exampleXml';
+import { Entity } from '../../classes/entity';
+import { ExampleXml } from '../../classes/exampleXml';
 import { Injectable } from '@angular/core';
 import * as xpath from 'xpath';
 import * as xmldom from 'xmldom';
@@ -15,8 +16,8 @@ export class InriverModelParserService {
     return nodes;
   }
 
-  getEntityId(entity:any):string {
-    var title = xpath.select("Id/text()", entity).toString();
-    return title;
+  getEntity(entity:any):Entity {
+    let _entity = new Entity(entity);
+    return _entity;
   }
 }
